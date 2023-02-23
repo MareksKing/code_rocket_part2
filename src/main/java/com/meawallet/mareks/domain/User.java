@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class User {
 
+    Integer id;
     String name;
     String surname;
     String email;

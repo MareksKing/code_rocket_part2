@@ -2,6 +2,7 @@ package com.meawallet.mareks.domain;
 
 public class Car {
 
+    Integer id;
     String Model;
     String Brand;
     Integer Year;
