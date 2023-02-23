@@ -1,5 +1,8 @@
 package com.meawallet.mareks.dto;
 
+import lombok.Value;
+
+@Value
 public class CreateCarInRequest {
 
     String Model;
