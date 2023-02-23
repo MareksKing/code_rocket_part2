@@ -1,19 +1,25 @@
 package com.meawallet.mareks.domain;
 
+import lombok.Builder;
+import lombok.Value;
+
+@Value
+@Builder
 public class Car {
 
     Integer id;
-    String Model;
-    String Brand;
-    Integer Year;
+    String model;
+    String brand;
+    Integer year;
 
-    enum engineType{
-        Petrol,
-        Diesel,
-        Electric,
-        Hybrid
-    }
+//    enum engineType{
+//        Petrol,
+//        Diesel,
+//        Electric,
+//        Hybrid
+//    }
 
+    String engineType;
     Double engineVolume;
     Short horsePower;
     Integer drivenKm;

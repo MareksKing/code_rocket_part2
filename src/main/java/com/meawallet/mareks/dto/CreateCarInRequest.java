@@ -9,12 +9,13 @@ public class CreateCarInRequest {
     String Brand;
     Integer Year;
 
-    enum engineType{
-        Petrol,
-        Diesel,
-        Electric,
-        Hybrid
-    }
+//    enum engineType{
+//        Petrol,
+//        Diesel,
+//        Electric,
+//        Hybrid
+//    }
+    String engineType;
 
     Double engineVolume;
     Short horsePower;
