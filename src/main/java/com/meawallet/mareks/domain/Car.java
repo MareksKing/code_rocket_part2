@@ -1,4 +1,4 @@
-package com.meawallet.mareks.core;
+package com.meawallet.mareks.domain;
 
 public class Car {
 
