@@ -20,7 +20,6 @@ public class CreateUserInRequestToDomainConverter {
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())
                 .town(request.getTown())
-                .bookmarks(Collections.EMPTY_SET)
                 .build();
     }
 }

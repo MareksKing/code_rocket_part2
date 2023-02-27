@@ -11,7 +11,6 @@ public class CreateDealershipInRequestToDomainConverter {
         return CarDealership.builder()
                 .name(request.getName())
                 .location(request.getLocation())
-                .availableCars(Collections.EMPTY_SET)
                 .build();
     }
 }
