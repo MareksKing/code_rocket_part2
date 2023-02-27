@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
@@ -33,6 +34,10 @@ public class UserEntity {
     @Column(name = "town")
     private String town;
 
-    @OneToMany(mappedBy = "userEntity")
-    Collection<Car> bookmarks;
+    @ManyToMany
+    @JoinTable(
+            name = "user_bookmarks",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id"))
+    private Collection<Car> bookmarks = new ArrayList<>();
 }
