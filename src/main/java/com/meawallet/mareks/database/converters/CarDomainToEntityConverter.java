@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CarDomainToEntityConverter {
-    public CarEntity convert(Car entity) {
+    public CarEntity convert(Car car) {
         return CarEntity.builder()
-                .model(entity.getModel())
-                .brand(entity.getBrand())
-                .year(entity.getYear())
-                .engineType(entity.getEngineType())
-                .engineVolume(entity.getEngineVolume())
-                .horsePower(entity.getHorsePower())
-                .drivenKm(entity.getDrivenKm())
-                .numberPlate(entity.getNumberPlate())
+                .model(car.getModel())
+                .brand(car.getBrand())
+                .year(car.getYear())
+                .engineType(car.getEngineType())
+                .engineVolume(car.getEngineVolume())
+                .horsePower(car.getHorsePower())
+                .drivenKm(car.getDrivenKm())
+                .numberPlate(car.getNumberPlate())
                 .build();
     }
 }
