@@ -1,1 +1,11 @@
 rootProject.name = 'mareks'
+include 'app'
+include 'app'
+include 'dealership-app'
+include 'dealership-core'
+include 'dealership-domain'
+include 'dealership-in'
+include 'dealership-repository'
+include 'dealership-store'
+include 'untitled'
+
