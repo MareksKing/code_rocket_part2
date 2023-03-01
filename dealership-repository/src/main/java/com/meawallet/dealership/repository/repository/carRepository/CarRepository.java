@@ -1,7 +1,7 @@
 package com.meawallet.dealership.repository.repository.carRepository;
 
 
-import com.meawallet.mareks.domain.Car;
+import com.meawallet.dealership.domain.Car;
 
 import java.util.Optional;
 

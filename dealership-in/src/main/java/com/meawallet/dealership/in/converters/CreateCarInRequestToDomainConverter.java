@@ -1,7 +1,7 @@
 package com.meawallet.dealership.in.converters;
 
-import com.meawallet.mareks.domain.Car;
-import com.meawallet.mareks.dto.CreateCarInRequest;
+import com.meawallet.dealership.domain.Car;
+import com.meawallet.dealership.in.dto.CreateCarInRequest;
 
 public class CreateCarInRequestToDomainConverter {
 

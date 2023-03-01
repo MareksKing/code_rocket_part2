@@ -1,7 +1,7 @@
 package com.meawallet.dealership.repository.entity;
 
-import com.meawallet.mareks.domain.CarDealership;
-import com.meawallet.mareks.domain.User;
+import com.meawallet.dealership.domain.CarDealership;
+import com.meawallet.dealership.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +22,7 @@ public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer carId;
     @Column(name = "model")
     private  String model;
     @Column(name = "brand")
@@ -41,9 +41,9 @@ public class CarEntity {
     private String numberPlate;
 
     @ManyToOne
-    @JoinColumn(name = "dealership_id")
+    @JoinColumn(name = "dealership_Id")
     private CarDealership dealership;
 
     @ManyToMany(mappedBy = "bookmarks")
-    private List<User> users = new ArrayList<>();
+    private final List<User> users = new ArrayList<>();
 }

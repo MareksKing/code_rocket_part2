@@ -1,15 +1,16 @@
 package com.meawallet.app;
 
 
-import com.meawallet.mareks.ui.UserMenu;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+@SpringBootApplication(scanBasePackages = "com.meawallet",
+		exclude = HibernateJpaAutoConfiguration.class)
 public class MareksApplication {
 
 	public static void main(String[] args) {
-		var applicationContext = new AnnotationConfigApplicationContext("com.meawallet.mareks", "org.springframework.data");
-		var userMenu = applicationContext.getBean(UserMenu.class);
-		userMenu.startMenu();
+		SpringApplication.run(MareksApplication.class);
 	}
 
 }

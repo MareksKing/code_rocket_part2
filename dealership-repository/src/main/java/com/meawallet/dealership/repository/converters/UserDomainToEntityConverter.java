@@ -1,7 +1,7 @@
 package com.meawallet.dealership.repository.converters;
 
 import com.meawallet.dealership.repository.entity.UserEntity;
-import com.meawallet.mareks.domain.User;
+import com.meawallet.dealership.domain.User;
 import org.springframework.stereotype.Component;
 
 @Component

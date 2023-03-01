@@ -1,6 +1,6 @@
 package com.meawallet.dealership.repository.entity;
 
-import com.meawallet.mareks.domain.Car;
+import com.meawallet.dealership.domain.Car;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,12 +20,12 @@ public class CarDealershipEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer dealershipId;
     @Column(name = "name")
     private String name;
     @Column(name = "location")
     private String location;
 
     @OneToMany(mappedBy = "dealership")
-    private Collection<Car> availableCars = new ArrayList<>();
+    private final Collection<Car> availableCars = new ArrayList<>();
 }

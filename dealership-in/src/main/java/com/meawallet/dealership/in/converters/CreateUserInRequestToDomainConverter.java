@@ -1,8 +1,8 @@
 package com.meawallet.dealership.in.converters;
 
-import com.meawallet.mareks.domain.Car;
-import com.meawallet.mareks.domain.User;
-import com.meawallet.mareks.dto.CreateUserInRequest;
+
+import com.meawallet.dealership.domain.User;
+import com.meawallet.dealership.in.dto.CreateUserInRequest;
 import org.springframework.stereotype.Component;
 
 

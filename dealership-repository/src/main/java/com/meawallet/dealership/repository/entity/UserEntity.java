@@ -1,7 +1,7 @@
 package com.meawallet.dealership.repository.entity;
 
 
-import com.meawallet.mareks.domain.Car;
+import com.meawallet.dealership.domain.Car;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +21,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer userId;
 
     @Column(name = "name")
     private String name;
@@ -39,5 +39,5 @@ public class UserEntity {
             name = "user_bookmarks",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "car_id"))
-    private Collection<Car> bookmarks = new ArrayList<>();
+    private final Collection<Car> bookmarks = new ArrayList<>();
 }

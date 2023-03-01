@@ -1,7 +1,7 @@
 package com.meawallet.dealership.repository.converters;
 
 import com.meawallet.dealership.repository.entity.CarDealershipEntity;
-import com.meawallet.mareks.domain.CarDealership;
+import com.meawallet.dealership.domain.CarDealership;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +11,7 @@ public class CarDealershipEntityToDomainConverter {
         return CarDealership.builder()
                 .name(entity.getName())
                 .location(entity.getLocation())
-                .id(entity.getId())
+                .id(entity.getDealershipId())
                 .build();
     }
 }
