@@ -27,5 +27,5 @@ public class CarDealershipEntity {
     private String location;
 
     @OneToMany(mappedBy = "dealership")
-    private final Collection<Car> availableCars = new ArrayList<>();
+    private final Collection<CarEntity> availableCars = new ArrayList<>();
 }

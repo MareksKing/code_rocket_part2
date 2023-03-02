@@ -27,8 +27,8 @@ public class CarEntity {
     private  String model;
     @Column(name = "brand")
     private String brand;
-    @Column(name = "year")
-    private Integer year;
+    @Column(name = "carYear")
+    private Integer carYear;
     @Column(name = "engineType")
     private String engineType;
     @Column(name = "engineVolume")
@@ -41,9 +41,9 @@ public class CarEntity {
     private String numberPlate;
 
     @ManyToOne
-    @JoinColumn(name = "dealership_Id")
-    private CarDealership dealership;
+    @JoinColumn(name = "dealership")
+    private CarDealershipEntity dealership;
 
     @ManyToMany(mappedBy = "bookmarks")
-    private final List<User> users = new ArrayList<>();
+    private final List<UserEntity> users = new ArrayList<>();
 }

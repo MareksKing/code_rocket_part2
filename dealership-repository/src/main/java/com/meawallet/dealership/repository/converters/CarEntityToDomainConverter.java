@@ -11,7 +11,7 @@ public class CarEntityToDomainConverter {
         return Car.builder()
                 .model(entity.getModel())
                 .brand(entity.getBrand())
-                .year(entity.getYear())
+                .year(entity.getCarYear())
                 .engineType(entity.getEngineType())
                 .engineVolume(entity.getEngineVolume())
                 .horsePower(entity.getHorsePower())

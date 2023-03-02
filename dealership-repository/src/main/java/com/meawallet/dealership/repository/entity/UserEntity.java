@@ -36,8 +36,8 @@ public class UserEntity {
 
     @ManyToMany
     @JoinTable(
-            name = "user_bookmarks",
+            name = "bookmarks",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "car_id"))
-    private final Collection<Car> bookmarks = new ArrayList<>();
+            inverseJoinColumns = @JoinColumn(name = "carId"))
+    private final Collection<CarEntity> bookmarks = new ArrayList<>();
 }
