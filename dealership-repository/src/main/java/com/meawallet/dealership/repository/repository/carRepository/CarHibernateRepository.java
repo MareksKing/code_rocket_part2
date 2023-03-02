@@ -4,6 +4,7 @@ import com.meawallet.dealership.domain.Car;
 import com.meawallet.dealership.repository.converters.CarDomainToEntityConverter;
 import com.meawallet.dealership.repository.converters.CarEntityToDomainConverter;
 import com.meawallet.dealership.domain.Car;
+import com.meawallet.dealership.repository.entity.CarEntity;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -27,6 +28,9 @@ public class CarHibernateRepository implements CarRepository{
 
     @Override
     public Optional<Car> findCarById(Integer id) {
-        return Optional.empty();
+
+        var entity = sessionFactory.getCurrentSession().find(CarEntity.class, id);
+        return Optional.ofNullable(entity)
+                .map(carEntityToDomainConverter::convert);
     }
 }
