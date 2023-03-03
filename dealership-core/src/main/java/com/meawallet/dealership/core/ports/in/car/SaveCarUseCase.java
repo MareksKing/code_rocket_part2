@@ -4,5 +4,5 @@ import com.meawallet.dealership.domain.Car;
 
 public interface SaveCarUseCase {
 
-    void save(Car car);
+    Car save(Car car);
 }

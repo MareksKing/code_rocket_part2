@@ -4,5 +4,5 @@ import com.meawallet.dealership.domain.Car;
 
 public interface SaveCarPort {
 
-    void saveCar(Car car);
+    Car saveCar(Car car);
 }
