@@ -4,6 +4,9 @@ import com.meawallet.dealership.core.ports.in.dealership.AddCarToDealershipUseCa
 import com.meawallet.dealership.core.ports.in.dealership.GetDealershipCarsUseCase;
 import com.meawallet.dealership.core.ports.in.dealership.GetDealershipUseCase;
 import com.meawallet.dealership.core.ports.in.dealership.SaveDealershipUseCase;
+import com.meawallet.dealership.in.converters.CreateDealershipInRequestToDomainConverter;
+import com.meawallet.dealership.in.converters.DealershipToCreateDealershipInResponseConverter;
+import com.meawallet.dealership.in.converters.DealershipToGetDealershipInResponseConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,4 +18,8 @@ public class CarDealershipController {
     private final GetDealershipCarsUseCase getDealershipCarsUseCase;
     private final GetDealershipUseCase getDealershipUseCase;
     private final AddCarToDealershipUseCase addCarToDealershipUseCase;
+
+    private final CreateDealershipInRequestToDomainConverter createDealershipInRequestToDomainConverter;
+    private final DealershipToGetDealershipInResponseConverter dealershipToGetDealershipInResponseConverter;
+    private final DealershipToCreateDealershipInResponseConverter dealershipToCreateDealershipInResponseConverter;
 }
