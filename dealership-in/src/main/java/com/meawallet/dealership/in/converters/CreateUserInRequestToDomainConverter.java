@@ -11,11 +11,11 @@ public class CreateUserInRequestToDomainConverter {
 
     public User convert(CreateUserInRequest request){
         return User.builder()
-                .name(request.getName())
-                .surname(request.getSurname())
-                .email(request.getEmail())
-                .phoneNumber(request.getPhoneNumber())
-                .town(request.getTown())
+                .name(request.name())
+                .surname(request.surname())
+                .email(request.email())
+                .phoneNumber(request.phoneNumber())
+                .town(request.town())
                 .build();
     }
 }

@@ -7,8 +7,8 @@ public class CreateDealershipInRequestToDomainConverter {
 
     public CarDealership convert(CreateDealershipInRequest request){
         return CarDealership.builder()
-                .name(request.getName())
-                .location(request.getLocation())
+                .name(request.name())
+                .location(request.location())
                 .build();
     }
 }
