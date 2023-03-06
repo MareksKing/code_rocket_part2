@@ -4,5 +4,5 @@ import com.meawallet.dealership.domain.CarDealership;
 
 public interface SaveDealershipPort {
 
-    void save(CarDealership dealership);
+    CarDealership save(CarDealership dealership);
 }

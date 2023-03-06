@@ -26,9 +26,10 @@ public class UserHibernateRepository implements UserRepository {
 
     private final UserEntityToDomainConverter userEntityToDomainConverter;
     @Override
-    public void save(User user) {
+    public User save(User user) {
         var entity = userDomainToEntityConverter.convert(user);
         sessionFactory.getCurrentSession().persist(entity);
+        return userEntityToDomainConverter.convert(entity);
     }
 
     @Override
@@ -39,9 +40,8 @@ public class UserHibernateRepository implements UserRepository {
     }
 
     @Override
-    public List<CarEntity> listUserCars(User user) {
-        var entity = userDomainToEntityConverter.convert(user);
-        return entity.getBookmarks().stream().toList();
+    public List<Car> listUserCars(User user) {
+        return user.getBookmarks().stream().toList();
     }
 
     @Override

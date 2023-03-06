@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface DealershipRepository {
 
-    void save(CarDealership dealership);
+    CarDealership save(CarDealership dealership);
 
     Optional<CarDealership> findDealershipById(Integer id);
 
-    List<CarEntity> listCarsInDealership(CarDealership dealership);
+    List<Car> listCarsInDealership(CarDealership dealership);
 
     void addCarToDealership(Car car, CarDealership dealership);
 }

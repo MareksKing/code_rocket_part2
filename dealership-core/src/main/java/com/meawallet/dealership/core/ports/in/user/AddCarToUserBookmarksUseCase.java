@@ -1,8 +1,9 @@
 package com.meawallet.dealership.core.ports.in.user;
 
 import com.meawallet.dealership.domain.Car;
+import com.meawallet.dealership.domain.User;
 
 public interface AddCarToUserBookmarksUseCase {
 
-    void addCarToUserBookmarks(Car car);
+    void addCarToUserBookmarks(Car car, User user);
 }

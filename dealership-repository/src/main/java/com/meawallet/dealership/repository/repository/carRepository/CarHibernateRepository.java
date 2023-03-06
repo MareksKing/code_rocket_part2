@@ -20,9 +20,10 @@ public class CarHibernateRepository implements CarRepository{
     private final CarDomainToEntityConverter carDomainToEntityConverter;
     private final CarEntityToDomainConverter carEntityToDomainConverter;
     @Override
-    public void save(Car car) {
+    public Car save(Car car) {
         var entity = carDomainToEntityConverter.convert(car);
         sessionFactory.getCurrentSession().persist(entity);
+        return carEntityToDomainConverter.convert(entity);
     }
 
 

@@ -3,6 +3,7 @@ package com.meawallet.dealership.core.ports.services.UserServices;
 import com.meawallet.dealership.core.ports.in.user.AddCarToUserBookmarksUseCase;
 import com.meawallet.dealership.core.ports.out.user.AddCarToUserBookmarksPort;
 import com.meawallet.dealership.domain.Car;
+import com.meawallet.dealership.domain.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ class AddCarToUserBookmarksService implements AddCarToUserBookmarksUseCase {
     private final AddCarToUserBookmarksPort addCarToUserBookmarksPort;
 
     @Override
-    public void addCarToUserBookmarks(Car car) {
-        addCarToUserBookmarksPort.addCarToUserBookmarks(car);
+    public void addCarToUserBookmarks(Car car, User user) {
+        addCarToUserBookmarksPort.addCarToUserBookmarks(car, user);
     }
 }

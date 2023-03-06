@@ -26,9 +26,10 @@ public class DealershipHibernateRepository implements DealershipRepository{
     private final CarDealershipEntityToDomainConverter carDealershipEntityToDomainConverter;
 
     @Override
-    public void save(CarDealership dealership) {
+    public CarDealership save(CarDealership dealership) {
         var entity = carDealershipDomainToEntityConverter.convert(dealership);
         sessionFactory.getCurrentSession().persist(entity);
+        return carDealershipEntityToDomainConverter.convert(entity);
     }
 
     @Override
@@ -39,9 +40,8 @@ public class DealershipHibernateRepository implements DealershipRepository{
     }
 
     @Override
-    public List<CarEntity> listCarsInDealership(CarDealership dealership) {
-        var entity = carDealershipDomainToEntityConverter.convert(dealership);
-        return entity.getAvailableCars().stream().toList();
+    public List<Car> listCarsInDealership(CarDealership dealership) {
+        return dealership.getAvailableCars().stream().toList();
     }
 
     @Override

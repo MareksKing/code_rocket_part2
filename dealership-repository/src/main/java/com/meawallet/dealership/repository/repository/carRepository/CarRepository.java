@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CarRepository {
 
-    void save(Car car);
+    Car save(Car car);
 
     Optional<Car> findCarById(Integer id);
 }
