@@ -16,8 +16,6 @@ dependencies {
     implementation project(":dealership-repository")
     implementation project(":dealership-domain")
 
-    implementation 'org.springframework:spring-context:6.0.5'
-    implementation 'org.springframework:spring-core:6.0.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:3.0.3'
 
     compileOnly 'org.projectlombok:lombok:1.18.26'

@@ -17,7 +17,7 @@ public class UpdateCarService implements UpdateCarUseCase {
     @Override
     public void updateCar(Car car) {
         findCarByIdPort.findCarById(car.getId())
-                .orElseThrow(() -> new IllegalArgumentException("User not found."));
+                .orElseThrow(() -> new IllegalArgumentException("Car not found."));
 
         updateCarPort.update(car);
     }

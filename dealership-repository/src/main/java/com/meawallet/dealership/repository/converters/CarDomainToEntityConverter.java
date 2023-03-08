@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class CarDomainToEntityConverter {
     public CarEntity convert(Car car) {
         return CarEntity.builder()
+                .carId(car.getId())
                 .model(car.getModel())
                 .brand(car.getBrand())
                 .carYear(car.getYear())

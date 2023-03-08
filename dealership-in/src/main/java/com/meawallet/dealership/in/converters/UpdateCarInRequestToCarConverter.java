@@ -2,7 +2,9 @@ package com.meawallet.dealership.in.converters;
 
 import com.meawallet.dealership.domain.Car;
 import com.meawallet.dealership.in.dto.UpdateCarInRequest;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UpdateCarInRequestToCarConverter {
     public Car convert(UpdateCarInRequest request, Integer id) {
         return Car.builder()

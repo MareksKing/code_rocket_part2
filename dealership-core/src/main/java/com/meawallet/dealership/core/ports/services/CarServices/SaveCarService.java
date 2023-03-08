@@ -14,6 +14,6 @@ class SaveCarService implements SaveCarUseCase {
 
     @Override
     public Car save(Car car) {
-        return saveCarPort.saveCar(car);
+        return saveCarPort.save(car);
     }
 }
