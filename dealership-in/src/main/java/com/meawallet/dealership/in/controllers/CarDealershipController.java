@@ -44,7 +44,7 @@ public class CarDealershipController {
     }
 
     @GetMapping(value = "/dealership/{id}")
-    public GetDealershipInResponse findCarById(@PathVariable Integer id){
+    public GetDealershipInResponse findDealershipById(@PathVariable Integer id){
         var dealership = getDealershipUseCase.getDealership(id);
         return dealershipToGetDealershipInResponseConverter.convert(dealership);
 

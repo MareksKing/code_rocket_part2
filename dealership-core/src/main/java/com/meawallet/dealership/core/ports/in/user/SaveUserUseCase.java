@@ -4,5 +4,5 @@ import com.meawallet.dealership.domain.User;
 
 public interface SaveUserUseCase {
 
-    void saveUser(User user);
+    User saveUser(User user);
 }
