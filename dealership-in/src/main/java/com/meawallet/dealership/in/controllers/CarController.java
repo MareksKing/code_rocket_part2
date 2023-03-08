@@ -27,7 +27,7 @@ public class CarController {
     private final CarToGetCarInResponseConverter carToGetCarInResponseConverter;
 
 
-    @PostMapping(value = "/createCar")
+    @PostMapping(value = "/car")
     public ResponseEntity<CreateCarInResponse> create(@RequestBody CreateCarInRequest request){
         var car = createCarInRequestToDomainConverter.convert(request);
         var createdCar = saveCarUseCase.save(car);
@@ -50,4 +50,5 @@ public class CarController {
         return carToGetCarInResponseConverter.convert(car);
 
     }
+
 }

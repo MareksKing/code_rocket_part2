@@ -12,7 +12,7 @@ class SaveDealershipService implements SaveDealershipUseCase {
 
     private final SaveDealershipPort saveDealershipPort;
     @Override
-    public void saveDealership(CarDealership dealership) {
-        saveDealershipPort.save(dealership);
+    public CarDealership saveDealership(CarDealership dealership) {
+        return saveDealershipPort.save(dealership);
     }
 }
