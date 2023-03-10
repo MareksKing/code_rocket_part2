@@ -14,8 +14,8 @@ class GetUserBookmarksService implements GetUserBookmarksUseCase {
 
     private final ListUserBookmarksPort listUserBookmarks;
     @Override
-    public List<Car> listUserBookmarks(User user) {
-        return listUserBookmarks.listUserBookmarkedCars(user);
+    public List<Car> listUserBookmarks(Integer id) {
+        return listUserBookmarks.listUserBookmarkedCars(id);
     }
 
 }

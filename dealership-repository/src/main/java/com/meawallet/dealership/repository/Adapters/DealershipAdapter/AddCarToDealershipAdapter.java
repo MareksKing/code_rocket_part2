@@ -22,7 +22,7 @@ public class AddCarToDealershipAdapter implements AddCarToDealershipPort {
     private final CarDomainToEntityConverter carDomainToEntityConverter;
     @Override
     public void addCarToDealershipList(Car car, Integer dealershipId) {
-//        dealershipRepository.addCarToDealership(car, dealershipId);
+
 
         CarDealershipEntity dealership = dealershipRepository.findById(dealershipId)
                                                         .orElseThrow(() -> new EntityNotFoundException("Dealership not found"));

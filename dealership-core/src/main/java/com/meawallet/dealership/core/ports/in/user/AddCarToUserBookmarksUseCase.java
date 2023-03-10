@@ -5,5 +5,5 @@ import com.meawallet.dealership.domain.User;
 
 public interface AddCarToUserBookmarksUseCase {
 
-    void addCarToUserBookmarks(Car car, User user);
+    void addCarToUserBookmarks(Car car, Integer id);
 }

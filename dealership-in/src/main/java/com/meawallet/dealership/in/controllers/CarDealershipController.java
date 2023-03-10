@@ -78,4 +78,7 @@ public class CarDealershipController {
         var car = updateDealershipInRequestToDealershipConverter.convert(updateDealershipInRequest, id);
         updateDealershipUseCase.updateDealership(car);
     }
+
+    //Add listAvailableCars
+    //Add addCarToDealership
 }

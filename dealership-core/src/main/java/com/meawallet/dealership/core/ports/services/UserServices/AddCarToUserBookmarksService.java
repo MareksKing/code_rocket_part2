@@ -14,7 +14,7 @@ class AddCarToUserBookmarksService implements AddCarToUserBookmarksUseCase {
     private final AddCarToUserBookmarksPort addCarToUserBookmarksPort;
 
     @Override
-    public void addCarToUserBookmarks(Car car, User user) {
-        addCarToUserBookmarksPort.addCarToUserBookmarks(car, user);
+    public void addCarToUserBookmarks(Car car, Integer id) {
+        addCarToUserBookmarksPort.addCarToUserBookmarks(car, id);
     }
 }

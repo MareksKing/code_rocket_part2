@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface GetUserBookmarksUseCase {
 
-    List<Car> listUserBookmarks(User user);
+    List<Car> listUserBookmarks(Integer id);
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ListUserBookmarksPort {
 
-    List<Car> listUserBookmarkedCars(User user);
+    List<Car> listUserBookmarkedCars(Integer id);
 }
