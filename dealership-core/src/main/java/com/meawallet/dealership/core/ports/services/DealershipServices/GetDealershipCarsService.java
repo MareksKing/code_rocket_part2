@@ -15,7 +15,7 @@ class GetDealershipCarsService implements GetDealershipCarsUseCase {
 
     private final ListDealershipsAvailableCarsPort listAvailableCars;
     @Override
-    public List<Car> listCarsInDealership(CarDealership dealership) {
-        return listAvailableCars.listAvailableCarsInDealership(dealership);
+    public List<Car> listCarsInDealership(Integer id) {
+        return listAvailableCars.listAvailableCarsInDealership(id);
     }
 }

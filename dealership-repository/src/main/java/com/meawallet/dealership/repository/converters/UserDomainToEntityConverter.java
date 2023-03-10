@@ -9,6 +9,7 @@ public class UserDomainToEntityConverter {
 
     public UserEntity convert(User user) {
         return UserEntity.builder()
+                .userId(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .email(user.getEmail())

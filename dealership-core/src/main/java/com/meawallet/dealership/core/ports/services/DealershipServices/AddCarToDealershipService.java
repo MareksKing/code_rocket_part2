@@ -14,7 +14,7 @@ class AddCarToDealershipService implements AddCarToDealershipUseCase {
     private final AddCarToDealershipPort addCarToDealershipPort;
 
     @Override
-    public void addCarToDealership(Car car, CarDealership dealership) {
-        addCarToDealershipPort.addCarToDealershipList(car, dealership);
+    public void addCarToDealership(Car car, Integer id) {
+        addCarToDealershipPort.addCarToDealershipList(car, id);
     }
 }

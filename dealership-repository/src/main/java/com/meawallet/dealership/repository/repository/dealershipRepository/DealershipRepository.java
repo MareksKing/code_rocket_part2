@@ -2,18 +2,16 @@ package com.meawallet.dealership.repository.repository.dealershipRepository;
 
 import com.meawallet.dealership.domain.Car;
 import com.meawallet.dealership.domain.CarDealership;
-import com.meawallet.dealership.repository.entity.CarEntity;
+import com.meawallet.dealership.repository.entity.CarDealershipEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface DealershipRepository {
+@Repository
+public interface DealershipRepository extends JpaRepository<CarDealershipEntity, Integer>{
 
-    CarDealership save(CarDealership dealership);
+    Optional<CarDealershipEntity> findById(Integer id);
 
-    Optional<CarDealership> findDealershipById(Integer id);
-
-    List<Car> listCarsInDealership(CarDealership dealership);
-
-    void addCarToDealership(Car car, CarDealership dealership);
 }

@@ -9,6 +9,7 @@ public class CarDealershipDomainToEntityConverter {
 
     public CarDealershipEntity convert(CarDealership dealership) {
         return CarDealershipEntity.builder()
+                .dealershipId(dealership.getId())
                 .name(dealership.getName())
                 .location(dealership.getLocation())
                 .build();

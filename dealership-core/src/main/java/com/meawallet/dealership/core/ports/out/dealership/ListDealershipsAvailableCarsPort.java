@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ListDealershipsAvailableCarsPort {
 
-    List<Car> listAvailableCarsInDealership(CarDealership dealership);
+    List<Car> listAvailableCarsInDealership(Integer id);
 }
