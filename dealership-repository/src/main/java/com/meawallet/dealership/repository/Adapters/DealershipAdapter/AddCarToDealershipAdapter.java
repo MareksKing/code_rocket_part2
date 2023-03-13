@@ -3,9 +3,12 @@ package com.meawallet.dealership.repository.Adapters.DealershipAdapter;
 import com.meawallet.dealership.core.ports.out.dealership.AddCarToDealershipPort;
 import com.meawallet.dealership.domain.Car;
 import com.meawallet.dealership.domain.CarDealership;
+import com.meawallet.dealership.repository.converters.CarDealershipEntityToDomainConverter;
 import com.meawallet.dealership.repository.converters.CarDomainToEntityConverter;
+import com.meawallet.dealership.repository.converters.CarEntityToDomainConverter;
 import com.meawallet.dealership.repository.entity.CarDealershipEntity;
 import com.meawallet.dealership.repository.entity.CarEntity;
+import com.meawallet.dealership.repository.repository.carRepository.CarRepository;
 import com.meawallet.dealership.repository.repository.dealershipRepository.DealershipRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -19,16 +22,21 @@ import java.util.List;
 @AllArgsConstructor
 public class AddCarToDealershipAdapter implements AddCarToDealershipPort {
     private final DealershipRepository dealershipRepository;
-    private final CarDomainToEntityConverter carDomainToEntityConverter;
+    private final CarRepository carRepository;
     @Override
-    public void addCarToDealershipList(Car car, Integer dealershipId) {
+    public void addCarToDealershipList(Integer carId, Integer dealershipId) {
 
 
         CarDealershipEntity dealership = dealershipRepository.findById(dealershipId)
                                                         .orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
-
-        var entity = carDomainToEntityConverter.convert(car);
-        dealership.getAvailableCars().add(entity);
+        CarEntity car = carRepository.findById(carId)
+                .orElseThrow(() -> new EntityNotFoundException("Car not found"));
+        if(dealership.getAvailableCars().add(car)){
+            System.out.println("SUCCESS");
+        }else{
+            System.out.println("FAILED");
+        }
+        dealership.getAvailableCars().add(car);
         dealershipRepository.save(dealership);
 
 

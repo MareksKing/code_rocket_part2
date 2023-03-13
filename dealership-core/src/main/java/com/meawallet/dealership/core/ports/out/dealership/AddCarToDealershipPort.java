@@ -5,5 +5,5 @@ import com.meawallet.dealership.domain.CarDealership;
 
 public interface AddCarToDealershipPort {
 
-    void addCarToDealershipList(Car car, Integer id);
+    void addCarToDealershipList(Integer carId, Integer id);
 }

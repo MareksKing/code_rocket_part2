@@ -1,10 +1,7 @@
 package com.meawallet.dealership.in.controllers;
 
 import com.meawallet.dealership.core.ports.in.dealership.*;
-import com.meawallet.dealership.in.converters.CreateDealershipInRequestToDomainConverter;
-import com.meawallet.dealership.in.converters.DealershipToCreateDealershipInResponseConverter;
-import com.meawallet.dealership.in.converters.DealershipToGetDealershipInResponseConverter;
-import com.meawallet.dealership.in.converters.UpdateDealershipInRequestToDealershipConverter;
+import com.meawallet.dealership.in.converters.*;
 import com.meawallet.dealership.in.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,6 +29,7 @@ public class CarDealershipController {
     private final DealershipToGetDealershipInResponseConverter dealershipToGetDealershipInResponseConverter;
     private final DealershipToCreateDealershipInResponseConverter dealershipToCreateDealershipInResponseConverter;
     private final UpdateDealershipInRequestToDealershipConverter updateDealershipInRequestToDealershipConverter;
+    private final CarToGetCarInResponseConverter carToGetCarInResponseConverter;
 
     @PostMapping(value = "/dealership")
     public ResponseEntity<CreateDealershipInResponse> create(@RequestBody CreateDealershipInRequest request){
@@ -79,6 +77,20 @@ public class CarDealershipController {
         updateDealershipUseCase.updateDealership(car);
     }
 
-    //Add listAvailableCars
-    //Add addCarToDealership
+    @PostMapping(value = "/dealership/{dealerId}/{carId}")
+    public List<GetCarInResponse> addCarToDealershipList(@PathVariable Integer carId, @PathVariable Integer dealerId){
+        addCarToDealershipUseCase.addCarToDealership(carId, dealerId);
+        var carList = getDealershipCars(dealerId);
+
+        return carList;
+
+    }
+
+    @GetMapping(value = "/dealership/{id}/availableCars")
+    public List<GetCarInResponse> getDealershipCars(@PathVariable Integer id){
+        return getDealershipCarsUseCase.listCarsInDealership(id).stream()
+                .map(carToGetCarInResponseConverter::convert)
+                .toList();
+    }
+
 }

@@ -23,7 +23,6 @@ public class ListCarsInDealershipAdapter implements ListDealershipsAvailableCars
     private final CarEntityToDomainConverter carEntityToDomainConverter;
     @Override
     public List<Car> listAvailableCarsInDealership(Integer dealershipId) {
-//        return dealershipRepository.listCarsInDealership(dealershipId);
 
         var dealership = dealershipRepository.findById(dealershipId).orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
         return dealership.getAvailableCars().stream()

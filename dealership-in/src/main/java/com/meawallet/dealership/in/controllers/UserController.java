@@ -86,7 +86,7 @@ public class UserController {
 
     }
 
-    @GetMapping(value = "users/{id}/bookmarks")
+    @GetMapping(value = "/users/{id}/bookmarks")
     public List<GetCarInResponse> getUserBookmarks(@PathVariable Integer id){
         return getUserBookmarksUseCase.listUserBookmarks(id).stream()
                 .map(carToGetCarInResponseConverter::convert)
