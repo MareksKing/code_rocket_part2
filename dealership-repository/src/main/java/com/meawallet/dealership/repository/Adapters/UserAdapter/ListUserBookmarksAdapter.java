@@ -22,7 +22,7 @@ public class ListUserBookmarksAdapter implements ListUserBookmarksPort {
     @Override
     public List<Car> listUserBookmarkedCars(Integer id) {
 
-        var user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
+        var user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
         return user.getBookmarks().stream()
                 .map(carEntityToDomainConverter::convert)
                 .toList();

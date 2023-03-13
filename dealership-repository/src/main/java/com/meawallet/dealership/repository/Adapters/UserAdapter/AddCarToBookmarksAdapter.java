@@ -5,7 +5,9 @@ import com.meawallet.dealership.domain.Car;
 import com.meawallet.dealership.domain.User;
 import com.meawallet.dealership.repository.converters.CarDomainToEntityConverter;
 import com.meawallet.dealership.repository.entity.CarDealershipEntity;
+import com.meawallet.dealership.repository.entity.CarEntity;
 import com.meawallet.dealership.repository.entity.UserEntity;
+import com.meawallet.dealership.repository.repository.carRepository.CarRepository;
 import com.meawallet.dealership.repository.repository.userRepository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -18,15 +20,16 @@ import org.springframework.stereotype.Component;
 public class AddCarToBookmarksAdapter implements AddCarToUserBookmarksPort {
 
     private final UserRepository userRepository;
-    private final CarDomainToEntityConverter carDomainToEntityConverter;
+    private final CarRepository carRepository;
+
     @Override
-    public void addCarToUserBookmarks(Car car, Integer id) {
+    public void addCarToUserBookmarks(Integer carId, Integer id) {
 
         UserEntity user = userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
-
-        var entity = carDomainToEntityConverter.convert(car);
-        user.getBookmarks().add(entity);
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+        CarEntity car = carRepository.findById(carId)
+                .orElseThrow(() -> new EntityNotFoundException("Car not found"));
+        user.getBookmarks().add(car);
         userRepository.save(user);
     }
 }
