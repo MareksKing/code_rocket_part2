@@ -77,7 +77,7 @@ public class CarDealershipController {
         updateDealershipUseCase.updateDealership(car);
     }
 
-    @PostMapping(value = "/dealership/{dealerId}/{carId}")
+    @PutMapping(value = "/dealership/{dealerId}/{carId}")
     public List<GetCarInResponse> addCarToDealershipList(@PathVariable Integer carId, @PathVariable Integer dealerId){
         addCarToDealershipUseCase.addCarToDealership(carId, dealerId);
         var carList = getDealershipCars(dealerId);

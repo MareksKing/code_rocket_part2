@@ -77,7 +77,7 @@ public class UserController {
         updateUserUseCase.updateUser(user);
     }
 
-    @PostMapping(value = "/users/{userId}/{carId}")
+    @PutMapping(value = "/users/{userId}/{carId}")
     public List<GetCarInResponse> addCarToUserBookmarks(@PathVariable Integer carId, @PathVariable Integer userId){
         addCarToUserBookmarksUseCase.addCarToUserBookmarks(carId, userId);
         var carList = getUserBookmarks(userId);

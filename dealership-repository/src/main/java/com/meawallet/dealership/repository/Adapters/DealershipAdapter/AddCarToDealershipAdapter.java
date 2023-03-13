@@ -31,14 +31,10 @@ public class AddCarToDealershipAdapter implements AddCarToDealershipPort {
                                                         .orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
         CarEntity car = carRepository.findById(carId)
                 .orElseThrow(() -> new EntityNotFoundException("Car not found"));
-        if(dealership.getAvailableCars().add(car)){
-            System.out.println("SUCCESS");
-        }else{
-            System.out.println("FAILED");
-        }
+
         dealership.getAvailableCars().add(car);
+        car.setDealership(dealership);
+        dealership.getAvailableCars().stream().toList();
         dealershipRepository.save(dealership);
-
-
     }
 }

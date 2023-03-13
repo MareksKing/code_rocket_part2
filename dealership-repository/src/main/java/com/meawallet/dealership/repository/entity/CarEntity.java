@@ -42,7 +42,7 @@ public class CarEntity {
     private String numberPlate;
 
     @ManyToOne
-    @JoinColumn(name = "dealership")
+    @JoinColumn(name = "availableCars")
     private CarDealershipEntity dealership;
 
     @ManyToMany(mappedBy = "bookmarks")
