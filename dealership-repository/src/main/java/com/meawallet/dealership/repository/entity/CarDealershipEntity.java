@@ -13,7 +13,7 @@ import java.util.Collection;
 @Data
 @Builder
 @Entity
-@Table(name = "dealership")
+@Table(name = "dealerships")
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarDealershipEntity {

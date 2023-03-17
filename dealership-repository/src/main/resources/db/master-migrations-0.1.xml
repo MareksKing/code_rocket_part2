@@ -5,7 +5,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
 
-    <changeSet id="create.user.table" author="mareks.robalds">
+    <changeSet id="created.tables" author="mareks.robalds">
         <createTable tableName="users">
             <column name="userId" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -19,10 +19,86 @@
             <column name="email" type="VARCHAR(30)">
                 <constraints nullable="false"/>
             </column>
+            <column name="phoneNumber" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
             <column name="town" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="age" type="INTEGER"/>
+            <column name="carId" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
+
+        <createTable tableName="cars">
+            <column name="carId" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brand" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="carYear" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="engineType" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="engineVolume" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="horsePower" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="drivenKm" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numberPlate" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="availableCars" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="bookmarks" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="dealerships">
+            <column name="dealershipId" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="availableCars" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint  baseColumnNames="availableCars"
+                                  baseTableName="dealerships"
+                                  constraintName="fk_dealerships_cars"
+                                  referencedColumnNames="carId"
+                                  referencedTableName="cars"/>
+        <addForeignKeyConstraint  baseColumnNames="bookmarks"
+                                  baseTableName="cars"
+                                  constraintName="fk_cars_userBookmarks"
+                                  referencedColumnNames="userId"
+                                  referencedTableName="users"/>
+        <addForeignKeyConstraint  baseColumnNames="carId"
+                                  baseTableName="users"
+                                  constraintName="fk_userBookmarks_cars"
+                                  referencedColumnNames="carId"
+                                  referencedTableName="cars"/>
+        <addForeignKeyConstraint  baseColumnNames="availableCars"
+                                  baseTableName="cars"
+                                  constraintName="fk_cars_dealership"
+                                  referencedColumnNames="dealershipId"
+                                  referencedTableName="dealerships"/>
     </changeSet>
 </databaseChangeLog>
